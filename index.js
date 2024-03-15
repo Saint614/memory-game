@@ -1,9 +1,17 @@
-//const gridContainer = document.querySelector('.grid-container');
-let cards = [1, 2, 3, 4, 5, 6];
+const gridContainer = document.querySelector('.grid-container');
+let cards = [];
 let firstCard, secondCard;
 let lockBoard = false;
 let score = 0;
-//document.querySelector('.score').textContent = score;
+document.querySelector('.score').textContent = score;
+
+fetch("./data/cards.json")
+  .then((res) => res.json())
+  .then((data) => {
+    cards = [...data, ...data]
+    shuffleCards();
+    generateCards();
+  })
 
 // funtion shuffleCards gives us a random sequence of the values of our array
 function shuffleCards() {
@@ -18,20 +26,32 @@ function shuffleCards() {
     cards[currentIndex] = cards[randomIndex];
     cards[randomIndex] = temporaryValue;
   }
-  console.log(cards);
 }
 
-
-
-
-
-
+//for each value in the cards array, generateCards creates a div, modifies it and appends it to the grid.container
+function generateCards() {
+  for (let card of cards) {
+    const cardElement = document.createElement("div");
+    cardElement.classList.add("card");
+    cardElement.setAttribute("data-name", card.name);
+    cardElement.innerHTML = `
+      <div class="front>
+      <img class="front-image" src=${card.image} />
+      </div>
+      <div class="back"></div>`;
+    gridContainer.appendChild(cardElement);
+    cardElement.addEventListener("click", flipCard);
+  }
+}
+//with these two functions present, I think there should be cards on the page even they don't do anything yet
+//so I think the data stream I entered with the fetch function is not fully correct yet
+//if you look at elements in the dev tools you can see a grid is being generated, it's just not visable
 
 //flipCard functions handles the action of flipping the cards and logs the value of each card, it then ends with a call to the checkForMatch function
 function flipCard() {
     if (lockBoard) return; //checks is the board is locked, if it is nothing further will be ran and will exit the function
     if (this === firstCard) return; //checks if this is the first card in the sequence being flipped, if it is the function will end with no further code being ran
-    
+   
     this.classList.add("flipped");
 
     if (!firstCard) {
