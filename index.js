@@ -1,9 +1,11 @@
-const gridContainer = document.querySelector('.grid-container');
+const gameDiv = document.querySelector('.game');
 let cards = [];
 let firstCard, secondCard;
 let lockBoard = false;
 let score = 0;
 document.querySelector('.score').textContent = score;
+
+
 
 fetch("./data/cards.json")
   .then((res) => res.json())
@@ -11,9 +13,9 @@ fetch("./data/cards.json")
     cards = [...data, ...data]
     shuffleCards();
     generateCards();
-  })
+  });
 
-// funtion shuffleCards gives us a random sequence of the values of our array
+// function shuffleCards gives us a random sequence of the values of our array
 function shuffleCards() {
   let currentIndex = cards.length,
       randomIndex,
@@ -28,24 +30,22 @@ function shuffleCards() {
   }
 }
 
-//for each value in the cards array, generateCards creates a div, modifies it and appends it to the grid.container
+//for each value in the cards array, generateCards creates a div, modifies it and appends it to the gameDiv
 function generateCards() {
   for (let card of cards) {
-    const cardElement = document.createElement("div");
-    cardElement.classList.add("card");
-    cardElement.setAttribute("data-name", card.name);
-    cardElement.innerHTML = `
-      <div class="front>
-      <img class="front-image" src=${card.image} />
-      </div>
-      <div class="back"></div>`;
-    gridContainer.appendChild(cardElement);
-    cardElement.addEventListener("click", flipCard);
+    const cardDiv = document.createElement("div");
+    cardDiv.classList.add("card");
+    cardDiv.setAttribute("data-name", card.name);
+    cardDiv.innerHTML = `
+      <div class="front">
+      <img src=${card.image} />
+      </div>`
+  //<div class="back"></div>
+    cardDiv.addEventListener("click", flipCard);
+    gameDiv.appendChild(cardDiv);
   }
 }
-//with these two functions present, I think there should be cards on the page even they don't do anything yet
-//so I think the data stream I entered with the fetch function is not fully correct yet
-//if you look at elements in the dev tools you can see a grid is being generated, it's just not visable
+
 
 //flipCard functions handles the action of flipping the cards and logs the value of each card, it then ends with a call to the checkForMatch function
 function flipCard() {

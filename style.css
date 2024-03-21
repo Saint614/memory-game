@@ -1,8 +1,12 @@
 body {
-    background: url(img/memory-card-game-background.png) no-repeat center fixed;
+    background: url(assets/memory-card-game-background.png) no-repeat center fixed;
     background-size: cover;
     background-color: black;
     color: white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
   }
   
   h1 {
@@ -30,30 +34,23 @@ body {
     color: black;
   }
   
-  .grid-container {
+  .game {
+    position: relative;
     display: grid;
     justify-content: center;
-    grid-gap: 16px;
-    grid-template-columns: repeat(4, 140px);
-    grid-template-rows: repeat(2, calc(140 / 2 * 3));  
-  }
+    grid-template-columns: 250px 250px 250px 250px 250px;
+    grid-gap: 40px;
+    padding: 10;
+    }
   
   .card {
-    height: calc(140px / 2 * 3);
-    width: 140px;
-    border-radius: 10px;
-    background-color: white;
+    width: 200px;
     position: relative;
     transform-style: preserve-3d;
     transition: all 0.5s ease-in-out;
   }
   
-  .front-image {
-    width: 60px;
-    height: 60px;
-  }
-  
-  .card.flipped {
+  /*.card.flipped {
     transform: rotateY(180deg);
   }
   
@@ -79,4 +76,4 @@ body {
     background-position: center center;
     background-size: cover;
     backface-visibility:hidden;
-  }
+  } */

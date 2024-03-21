@@ -1,44 +1,38 @@
+[
 {
-    "image": "../assets/javascript-card-game-02.svg",
+    "image": "assets/javascript-card-game-02.svg",
     "name": "02"
 },
 {
-    "image": "../assets/javascript-card-game-03.svg",
+    "image": "assets/javascript-card-game-03.svg",
     "name": "03"
 },
 {
-    "image": "../assets/javascript-card-game-04.svg",
+    "image": "assets/javascript-card-game-04.svg",
     "name": "04"
 },
 {
-    "image": "../assets/javascript-card-game-05.svg",
+    "image": "assets/javascript-card-game-05.svg",
     "name": "05"
 },
 {
-    "image": "../assets/javascript-card-game-06.svg",
+    "image": "assets/javascript-card-game-06.svg",
     "name": "06"
 },
 {
-    "image": "../assets/javascript-card-game-07.svg",
+    "image": "assets/javascript-card-game-07.svg",
     "name": "07"
 },
 {
-    "image": "../assets/javascript-card-game-08.svg",
+    "image": "assets/javascript-card-game-08.svg",
     "name": "08"
 },
 {
-    "image": "../assets/javascript-card-game-09.svg",
-    "name": "09"
-},
-{
-    "image": "../assets/javascript-card-game-10.svg",
+    "image": "assets/javascript-card-game-10.svg",
     "name": "10"
 },
 {
-    "image": "../assets/javascript-card-game-11.svg",
+    "image": "assets/javascript-card-game-11.svg",
     "name": "11"
-},
-{
-    "image": "../assets/javascript-card-game-12.svg",
-    "name": "12"
 }
+]
