@@ -79,14 +79,14 @@ function disableCards() {
 }
 
 //unflip card function
-const cards = document.querySelectorAll('.memory-card');
+
 
   let hasFlippedCard = false;
-+ let lockBoard = false;
-  let firstCard, secondCard;
+
+  
 
   function flipCard() {
-+   if (lockBoard) return;
+   if (lockBoard) return;
     this.classList.add('flip');
 
     if (!hasFlippedCard) {
@@ -112,16 +112,17 @@ const cards = document.querySelectorAll('.memory-card');
   }
 
   function unflipCards() {
-+     lockBoard = true;
+     lockBoard = true;
 
     setTimeout(() => {
       firstCard.classList.remove('flip');
       secondCard.classList.remove('flip');
 
-+     lockBoard = false;
+     lockBoard = false;
+      resetBoard();
     }, 1500);
   }
-
+  cards = document.querySelectorAll('.memory-card');
   cards.forEach(card => card.addEventListener('click', flipCard));
 
 //reset board
