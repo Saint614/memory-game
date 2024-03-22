@@ -39,8 +39,7 @@ function generateCards() {
     cardDiv.innerHTML = `
       <div class="front">
       <img src=${card.image} />
-      </div>`
-  //<div class="back"></div>
+      </div><div class="back"></div>`
     cardDiv.addEventListener("click", flipCard);
     gameDiv.appendChild(cardDiv);
   }
