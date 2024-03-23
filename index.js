@@ -83,7 +83,7 @@ function resetBoard() {
 cards = document.querySelectorAll('.memory-card');
 cards.forEach(card => card.addEventListener('click', flipCard));
 //restart game
-document.querySelector('.restart-btn').addEventListener('click', function(){
-window.location.reload();
-return false;
+  document.querySelector('.restart-btn').addEventListener('click', function(){
+  window.location.reload();
+  return false;
 });
