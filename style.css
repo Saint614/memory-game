@@ -20,7 +20,10 @@ body {
     font-size: 30px;
     font-weight: bold;
   }
-  
+    .actions button:hover {
+    background-color: #a5a5a5;
+    transition: 0.4s;
+  }
   .actions {
     display: flex;
     justify-content: center;
