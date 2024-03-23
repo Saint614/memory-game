@@ -41,20 +41,23 @@ function generateCards() {
 
 function flipCard() {
   if (lockBoard) return;
+  if (this === firstCard) return;
   this.classList.add('flip');
-  if (!hasFlippedCard) {
-    hasFlippedCard = true;
+  if (!firstCard) {
     firstCard = this;
     return;
   }
   secondCard = this;
-  hasFlippedCard = false;
+  score++;
+  //document.querySelector('.score').textContent = score
+  lockBoard = true;
   checkForMatch();
 }
 
 function checkForMatch() {
   let isMatch = firstCard.dataset.name === secondCard.dataset.name;
   isMatch ? disableCards() : unflipCards();
+  //lockBoard = false;
 }
 
 function disableCards() {
@@ -63,7 +66,6 @@ function disableCards() {
 }
 
 function unflipCards() {
-    lockBoard = true;
     setTimeout(() => {
       firstCard.classList.remove('flip');
       secondCard.classList.remove('flip');
@@ -73,7 +75,7 @@ function unflipCards() {
 }
 
 function resetBoard() {
-  [hasFlippedCard, lockBoard] = [false, false];
+  lockBoard = false;
   [firstCard, secondCard] = [null, null];
 }
 
