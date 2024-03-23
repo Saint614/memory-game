@@ -130,7 +130,7 @@ function resetBoard() {
   [firstCard, secondCard] = [null, null];
 }
 //restart game
-document.querySelector('.restart-btn').addEventListener('click', function(){
+  document.querySelector('.restart-btn').addEventListener('click', function(){
   window.location.reload();
   return false;
 });
