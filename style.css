@@ -35,7 +35,6 @@ body {
   }
   
   .game {
-    position: relative;
     display: grid;
     justify-content: center;
     grid-template-columns: 250px 250px 250px 250px 250px;
@@ -48,41 +47,23 @@ body {
     position: relative;
     transform-style: preserve-3d;
     transition: all 0.5s ease-in-out;
+
   }
   .card::after {
     content: '';
     position: absolute;
     inset: 0;
     background-image: url(assets/javascript-card-game-card-backside.svg);
-    /*opacity: 0.5;*/
-    transition: 0.25s;
+    transition: all 0.5s ease-in-out;
     transform: rotateY(0deg);
     backface-visibility: hidden;
   }
-  .card .back {
-    background-image: url(assets/javascript-card-game-card-backside.svg);
-    background-position: center center;
-    background-size: cover;
-    backface-visibility: hidden;
-  } 
-  /*.card.flipped {
-    transform: rotateY(180deg);
+ 
+  .card.flip {
+    transform: rotateY(0deg);
   }
   
-  .front, .back {
-    backface-visibility: hidden;
-    position: absolute;
-    border-radius: 10px;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-  }
-  
-  .card .front {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .flip:after, .match:after {
     transform: rotateY(180deg);
-  } */
+  }
   
