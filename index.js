@@ -15,6 +15,18 @@ fetch("./data/cards.json")
     generateCards();
   });
 
+function initMap() {
+    const map = new google.maps.Map(document.getElementById('map-container'), {
+        center: { lat: -34.397, lng: 150.644 }, // Initial center coordinates
+        zoom: 8 // Initial zoom level
+    });
+    map.setOptions({ gestureHandling: 'greedy', disableDefaultUI: true }); // Optional: customize map controls
+    // Position the map container in the corner
+    document.getElementById('map-container').style.position = 'fixed';
+    document.getElementById('map-container').style.top = '20px';
+    document.getElementById('map-container').style.right = '20px';
+}
+
 function shuffleCards() {
   let currentIndex = cards.length,
       randomIndex,
