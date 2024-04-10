@@ -1,72 +1,103 @@
 body {
-    background: url(assets/memory-card-game-background.png) no-repeat center fixed;
-    background-size: cover;
-    background-color: black;
-    color: white;
-    /*align-items: center;
+  background: url(assets/memory-card-game-background.png) no-repeat center fixed;
+  background-size: cover;
+  background-color: black;
+  color: white;
+  /*align-items: center;
     justify-content: center;
     display: flex;*/
+}
+/* search container! */
+#search-container {
+  text-align: center;
+  margin-top: 20px;
+}
 
-  }
-  
-  h1 {
-    text-align: center;
-    font-size: 50px;
-    font-weight: 700;
-  }
-  
-  p {
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-  }
-    .actions button:hover {
-    background-color: #a5a5a5;
-    transition: 0.4s;
-  }
-  .actions {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .actions button {
-    padding: 8px 16px;
-    font-size: 30px;
-    border-radius: 10px;
-    background-color: orangered;
-    color: black;
-  }
-  
-  .game {
-    display: grid;
-    justify-content: center;
-    grid-template-columns: 250px 250px 250px 250px 250px;
-    grid-gap: 40px;
-    padding: 10;
-    }
-  
-  .card {
-    width: 200px;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: 0.5s;
+#search-input {
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 5px;
+}
 
-  }
-  .card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url(assets/javascript-card-game-card-backside.svg);
-    transition: 0.5s;
-    transform: rotateY(0deg);
-    backface-visibility: hidden;
-  }
- 
-  .card.flip {
-    transform: rotateY(0deg);
-  }
-  
-  .flip:after, .match:after {
-    transform: rotateY(180deg);
-  }
-  
+#search-input:focus {
+  outline: none;
+}
+
+#search-container button {
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#search-container button:hover {
+  background-color: #45a049;
+}
+
+/* hope this works!*/
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+  font-weight: 700;
+}
+
+p {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+.actions button:hover {
+  background-color: #a5a5a5;
+  transition: 0.4s;
+}
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+.actions button {
+  padding: 8px 16px;
+  font-size: 30px;
+  border-radius: 10px;
+  background-color: orangered;
+  color: black;
+}
+
+.game {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 250px 250px 250px 250px 250px;
+  grid-gap: 40px;
+  padding: 10;
+}
+
+.card {
+  width: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url(assets/javascript-card-game-card-backside.svg);
+  transition: 0.5s;
+  transform: rotateY(0deg);
+  backface-visibility: hidden;
+}
+
+.card.flip {
+  transform: rotateY(0deg);
+}
+
+.flip:after,
+.match:after {
+  transform: rotateY(180deg);
+}
